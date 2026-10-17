@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER"
+      prefHeight="400.0"
+      prefWidth="484.0"
+      spacing="10.0"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.sanchez.jorge.controller.UsuarioController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <TextField fx:id="txtUsuario" prefHeight="25.0" prefWidth="144.0" promptText="Nombre" />
+    <TextField fx:id="txtRut" prefHeight="25.0" prefWidth="151.0" promptText="Rut" />
+    <PasswordField fx:id="passwordContrasena" prefHeight="25.0" prefWidth="139.0" promptText="Contraseña" />
+    <TextField fx:id="txtCorreo" promptText="Correo" />
+
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <children>
+            <Label text="Edad:" />
+            <Spinner fx:id="spnEdad" editable="true" prefHeight="25.0" prefWidth="100.0">
+                <valueFactory>
+                    <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" max="120" initialValue="18" amountToStepBy="1" />
+                </valueFactory>
+            </Spinner>
+        </children>
+    </HBox>
+
+    <HBox alignment="TOP_RIGHT" prefHeight="71.0" prefWidth="444.0" spacing="20.0">
+        <children>
+            <Button fx:id="buttonCrearUsuario" onAction="#handlerAgregarUsuario" prefHeight="25.0" prefWidth="117.0" text="Agregar Usuario" />
+            <Button fx:id="buttonEliminarUsuario" disable="true" onAction="#handlerEliminarUsuario" prefHeight="25.0" prefWidth="103.0" text="Eliminar Usuario" />
+        </children>
+    </HBox>
+
+    <Separator focusTraversable="false" prefHeight="0.0" prefWidth="444.0" />
+
+    <TableView fx:id="tableUsuarios" prefHeight="133.0" prefWidth="444.0" onMouseClicked="#handleSeleccionar">
+
+        <columns>
+            <TableColumn fx:id="colNombre" prefWidth="99.0" text="Nombre" />
+            <TableColumn fx:id="colCorreo" prefWidth="84.0" text="Correo" />
+            <TableColumn fx:id="colEdad" prefWidth="85.0" text="Edad" />
+            <TableColumn fx:id="colRut" prefWidth="164.0" text="Rut" />
+        </columns>
+    </TableView>
+
+    <Label fx:id="lblMensaje" alignment="CENTER" prefHeight="39.0" prefWidth="284.0" />
+</VBox>
